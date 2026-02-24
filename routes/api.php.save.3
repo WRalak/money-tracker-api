@@ -1,0 +1,24 @@
+   <?php
+// routes/api.php
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WalletController;
+use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Route;
+
+// API Version 1 routes
+Route::prefix('v1')->group(function () {
+    
+    // User routes
+    Route::post('/users', [UserController::class, 'store']);
+    Route::get('/users/{id}', [UserController::class, 'show']);
+    
+    // Wallet routes
+    Route::post('/wallets', [WalletController::class, 'store']);
+    Route::get('/wallets/{id}', [WalletController::class, 'show']);
+    
+    // Transaction routes
+    Route::post('/transactions', [TransactionController::class, 'store']);
+});
+
+     		
